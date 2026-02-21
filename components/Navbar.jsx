@@ -13,7 +13,7 @@ const Navbar = () => {
     const {user, isLoaded} = useUser()
     const {openSignIn} = useClerk()
     const router = useRouter();
-    const [storeName, setStoreName] = useState('gocart')
+    const [storeName, setStoreName] = useState('Shop')
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     const [search, setSearch] = useState('')

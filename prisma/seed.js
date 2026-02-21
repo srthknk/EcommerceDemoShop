@@ -326,7 +326,7 @@ async function main() {
       storeId: store1.id,
       addressId: address1.id,
       isPaid: true,
-      paymentMethod: 'RAZORPAY',
+      paymentMethod: 'RAZORPAY_CARD',
       isCouponUsed: false,
       coupon: {},
       orderItems: {
@@ -356,7 +356,7 @@ async function main() {
       storeId: store2.id,
       addressId: address1.id,
       isPaid: true,
-      paymentMethod: 'RAZORPAY',
+      paymentMethod: 'RAZORPAY_UPI',
       isCouponUsed: false,
       coupon: {},
       orderItems: {

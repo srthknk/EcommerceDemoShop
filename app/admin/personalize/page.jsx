@@ -11,7 +11,7 @@ export default function AdminPersonalize() {
     const { getToken } = useAuth()
     const [activeTab, setActiveTab] = useState('store')
     const [settings, setSettings] = useState({
-        storeName: "gocart",
+        storeName: "My Store",
         bannerImage1: "",
         bannerImage2: "",
         bannerImage3: "",

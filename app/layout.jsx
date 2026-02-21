@@ -17,8 +17,8 @@ export async function generateMetadata() {
             where: { id: "default" }
         })
         
-        const title = settings?.storeName || "GoCart | Official Store"
-        const description = settings?.storeName || "GoCart | Official Store"
+        const title = settings?.storeName || "Welcome to Our Store"
+        const description = settings?.description || "Shop the best products"
         
         return {
             title: title,
@@ -26,8 +26,8 @@ export async function generateMetadata() {
         }
     } catch (error) {
         return {
-            title: "GoCart | Official Store",
-            description: "GoCart | Official Store",
+            title: "Welcome to Our Store",
+            description: "Shop the best products",
         }
     }
 }

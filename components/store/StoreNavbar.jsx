@@ -10,7 +10,7 @@ const StoreNavbar = () => {
 
     const {user} = useUser()
     const pathname = usePathname()
-    const [storeName, setStoreName] = useState('gocart')
+    const [storeName, setStoreName] = useState('Store')
     const [menuOpen, setMenuOpen] = useState(false)
 
     const storeLinks = [

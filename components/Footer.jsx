@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 
 const Footer = () => {
-    const [storeName, setStoreName] = useState('gocart')
+    const [storeName, setStoreName] = useState('Your Store')
     const [settings, setSettings] = useState({
         email: "contact@example.com",
         phone: "+1-212-456-7890",

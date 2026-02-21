@@ -24,7 +24,7 @@ export async function GET(request) {
         // Return default settings on error instead of 400
         return NextResponse.json({
             id: "default",
-            storeName: "gocart",
+            storeName: "My Store",
             bannerImage1: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200",
             bannerImage2: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200",
             bannerImage3: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200",
@@ -95,7 +95,7 @@ export async function POST(request) {
             },
             create: {
                 id: "default",
-                storeName: storeName || "gocart",
+                storeName: storeName || "My Store",
                 bannerImage1: bannerImage1 || "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200",
                 bannerImage2: bannerImage2 || "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200",
                 bannerImage3: bannerImage3 || "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200",

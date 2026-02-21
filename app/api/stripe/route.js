@@ -25,7 +25,7 @@ export async function POST(request){
 
             const {orderIds, userId, appId} = session.data[0].metadata
             
-            if(appId !== 'gocart'){
+            if(appId !== process.env.NEXT_PUBLIC_APP_ID || appId !== 'gocart'){
                 return NextResponse.json({received: true, message: 'Invalid app id'})
             }
 

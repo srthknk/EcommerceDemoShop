@@ -85,7 +85,7 @@ export default function CheckoutComponent() {
                 amount: Math.round(total * 100), // Amount in paise
                 currency: 'INR',
                 order_id: data.razorpayOrderId,
-                name: 'GoCart',
+                name: 'Your Store',
                 description: `Order #${data.orderId}`,
                 image: '/logo.png',
                 prefill: {

@@ -122,7 +122,7 @@ export async function POST(request){
                 metadata: {
                     orderIds: orderIds.join(','),
                     userId,
-                    appId: 'gocart'
+                    appId: process.env.NEXT_PUBLIC_APP_ID || 'gocart'
                 }
             })
             return NextResponse.json({session})

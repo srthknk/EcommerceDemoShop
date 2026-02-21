@@ -238,7 +238,7 @@ model Store {
 // Settings for store customization
 model Settings {
     id              String   @id @default("default")
-    storeName       String   @default("gocart")
+    storeName       String   @default("My Store")
     bannerImage1    String   @default("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200")
     bannerImage2    String   @default("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200")
     bannerImage3    String   @default("https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200")

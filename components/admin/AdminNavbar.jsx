@@ -10,7 +10,7 @@ const AdminNavbar = () => {
 
     const {user} = useUser()
     const pathname = usePathname()
-    const [storeName, setStoreName] = useState('gocart')
+    const [storeName, setStoreName] = useState('Admin')
     const [menuOpen, setMenuOpen] = useState(false)
 
     const adminLinks = [
