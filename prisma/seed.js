@@ -78,60 +78,227 @@ async function main() {
 
   console.log('✅ Created 2 demo stores');
 
-  // Create demo products for store1
+  // Create demo products for store1 (Fashion Hub)
   const product1 = await prisma.product.create({
     data: {
       name: 'Premium Cotton T-Shirt',
-      description: 'High quality 100% cotton t-shirt, perfect for everyday wear',
+      description: 'High quality 100% cotton t-shirt, perfect for everyday wear. Breathable, durable, and comfortable.',
       mrp: 1999,
       price: 999,
       category: 'Clothing',
-      images: ['https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500'],
+      images: [
+        'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500',
+        'https://images.unsplash.com/photo-1517466895681-c0e59a88d4c5?w=500'
+      ],
       inStock: true,
       storeId: store1.id,
+      isClothing: true,
+      totalUnits: 120,
     },
+  });
+
+  // Add sizes for T-Shirt
+  await prisma.productSize.createMany({
+    data: [
+      { productId: product1.id, size: 'XS', totalUnits: 15, availableUnits: 14 },
+      { productId: product1.id, size: 'S', totalUnits: 25, availableUnits: 23 },
+      { productId: product1.id, size: 'M', totalUnits: 35, availableUnits: 35 },
+      { productId: product1.id, size: 'L', totalUnits: 30, availableUnits: 28 },
+      { productId: product1.id, size: 'XL', totalUnits: 15, availableUnits: 15 },
+      { productId: product1.id, size: 'XXL', totalUnits: 10, availableUnits: 10 },
+      { productId: product1.id, size: 'XXXL', totalUnits: 5, availableUnits: 5 },
+    ],
   });
 
   const product2 = await prisma.product.create({
     data: {
       name: 'Blue Denim Jeans',
-      description: 'Classic blue denim jeans with perfect fit',
+      description: 'Classic blue denim jeans with perfect fit and dark wash. Premium fabric that lasts.',
       mrp: 3999,
       price: 2499,
       category: 'Clothing',
-      images: ['https://images.unsplash.com/photo-1542272604-787c62d465d1?w=500'],
+      images: [
+        'https://images.unsplash.com/photo-1542272604-787c62d465d1?w=500',
+        'https://images.unsplash.com/photo-1473966675286-c55c30d89f42?w=500'
+      ],
       inStock: true,
       storeId: store1.id,
+      isClothing: true,
+      totalUnits: 85,
     },
   });
 
+  // Add sizes for Jeans
+  await prisma.productSize.createMany({
+    data: [
+      { productId: product2.id, size: 'XS', totalUnits: 8, availableUnits: 8 },
+      { productId: product2.id, size: 'S', totalUnits: 15, availableUnits: 14 },
+      { productId: product2.id, size: 'M', totalUnits: 25, availableUnits: 25 },
+      { productId: product2.id, size: 'L', totalUnits: 22, availableUnits: 22 },
+      { productId: product2.id, size: 'XL', totalUnits: 12, availableUnits: 11 },
+      { productId: product2.id, size: 'XXL', totalUnits: 8, availableUnits: 8 },
+      { productId: product2.id, size: 'XXXL', totalUnits: 5, availableUnits: 5 },
+    ],
+  });
+
+  const product5 = await prisma.product.create({
+    data: {
+      name: 'Summer Floral Dress',
+      description: 'Beautiful summer floral dress perfect for warm days. Light, breathable, and stylish.',
+      mrp: 2499,
+      price: 1599,
+      category: 'Clothing',
+      images: [
+        'https://images.unsplash.com/photo-1572804419446-35e6ed8e8c9f?w=500',
+        'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500'
+      ],
+      inStock: true,
+      storeId: store1.id,
+      isClothing: true,
+      totalUnits: 60,
+    },
+  });
+
+  // Add sizes for Dress
+  await prisma.productSize.createMany({
+    data: [
+      { productId: product5.id, size: 'XS', totalUnits: 8, availableUnits: 8 },
+      { productId: product5.id, size: 'S', totalUnits: 12, availableUnits: 12 },
+      { productId: product5.id, size: 'M', totalUnits: 18, availableUnits: 18 },
+      { productId: product5.id, size: 'L', totalUnits: 15, availableUnits: 14 },
+      { productId: product5.id, size: 'XL', totalUnits: 7, availableUnits: 7 },
+    ],
+  });
+
+  const product6 = await prisma.product.create({
+    data: {
+      name: 'Classic Leather Jacket',
+      description: 'Premium quality leather jacket that never goes out of style. Perfect for any season.',
+      mrp: 8999,
+      price: 5999,
+      category: 'Clothing',
+      images: [
+        'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=500',
+        'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500'
+      ],
+      inStock: true,
+      storeId: store1.id,
+      isClothing: true,
+      totalUnits: 40,
+    },
+  });
+
+  // Add sizes for Jacket
+  await prisma.productSize.createMany({
+    data: [
+      { productId: product6.id, size: 'XS', totalUnits: 3, availableUnits: 3 },
+      { productId: product6.id, size: 'S', totalUnits: 8, availableUnits: 8 },
+      { productId: product6.id, size: 'M', totalUnits: 12, availableUnits: 12 },
+      { productId: product6.id, size: 'L', totalUnits: 10, availableUnits: 9 },
+      { productId: product6.id, size: 'XL', totalUnits: 7, availableUnits: 7 },
+    ],
+  });
+
+  console.log('✅ Created 5 demo clothing products with size variants');
+
+  // Create demo products for store2 (Tech World)
   const product3 = await prisma.product.create({
     data: {
       name: 'Wireless Bluetooth Headphones',
-      description: '30-hour battery life, noise cancellation, premium sound quality',
+      description: '30-hour battery life, active noise cancellation, premium sound quality. Perfect for music lovers.',
       mrp: 9999,
       price: 5999,
       category: 'Electronics',
-      images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500'],
+      images: [
+        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500',
+        'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500'
+      ],
       inStock: true,
       storeId: store2.id,
+      isClothing: false,
+      totalUnits: 50,
     },
   });
 
   const product4 = await prisma.product.create({
     data: {
       name: 'USB-C Fast Charger',
-      description: '65W fast charging for all devices',
+      description: '65W fast charging for all devices. Compatible with laptops, phones, and tablets.',
       mrp: 2999,
       price: 1499,
       category: 'Electronics',
       images: ['https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500'],
       inStock: true,
       storeId: store2.id,
+      isClothing: false,
+      totalUnits: 150,
     },
   });
 
-  console.log('✅ Created 4 demo products');
+  const product7 = await prisma.product.create({
+    data: {
+      name: '4K USB Webcam',
+      description: 'Crystal clear 4K resolution with auto-focus. Perfect for streaming and video calls.',
+      mrp: 7999,
+      price: 4499,
+      category: 'Electronics',
+      images: [
+        'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500',
+        'https://images.unsplash.com/photo-1545389336-cf633d7314e6?w=500'
+      ],
+      inStock: true,
+      storeId: store2.id,
+      isClothing: false,
+      totalUnits: 35,
+    },
+  });
+
+  const product8 = await prisma.product.create({
+    data: {
+      name: 'Mechanical Gaming Keyboard',
+      description: 'RGB backlit mechanical keyboard with Cherry MX switches. Durable and responsive.',
+      mrp: 5999,
+      price: 3499,
+      category: 'Electronics',
+      images: ['https://images.unsplash.com/photo-1587829191301-b281e6cebda3?w=500'],
+      inStock: true,
+      storeId: store2.id,
+      isClothing: false,
+      totalUnits: 45,
+    },
+  });
+
+  const product9 = await prisma.product.create({
+    data: {
+      name: 'Wireless Gaming Mouse',
+      description: 'High precision sensor with 8000 Hz polling rate. Perfect for competitive gaming.',
+      mrp: 3999,
+      price: 2299,
+      category: 'Electronics',
+      images: ['https://images.unsplash.com/photo-1527814050087-3793815479db?w=500'],
+      inStock: true,
+      storeId: store2.id,
+      isClothing: false,
+      totalUnits: 80,
+    },
+  });
+
+  const product10 = await prisma.product.create({
+    data: {
+      name: 'Portable SSD 1TB',
+      description: '1TB external solid state drive with lightning-fast transfer speeds. USB 3.2 Gen 2.',
+      mrp: 8999,
+      price: 5999,
+      category: 'Electronics',
+      images: ['https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500'],
+      inStock: true,
+      storeId: store2.id,
+      isClothing: false,
+      totalUnits: 60,
+    },
+  });
+
+  console.log('✅ Created 6 demo electronics products');
 
   // Create demo address for buyer
   const address1 = await prisma.address.create({
@@ -150,16 +317,16 @@ async function main() {
 
   console.log('✅ Created demo address');
 
-  // Create demo order
+  // Create demo orders
   const order1 = await prisma.order.create({
     data: {
-      total: 7498,
+      total: 5497,
       status: 'DELIVERED',
       userId: user1.id,
       storeId: store1.id,
       addressId: address1.id,
       isPaid: true,
-      paymentMethod: 'STRIPE',
+      paymentMethod: 'RAZORPAY',
       isCouponUsed: false,
       coupon: {},
       orderItems: {
@@ -168,18 +335,66 @@ async function main() {
             productId: product1.id,
             quantity: 2,
             price: 999,
+            selectedSize: 'M',
           },
           {
             productId: product2.id,
             quantity: 1,
             price: 2499,
+            selectedSize: 'L',
           },
         ],
       },
     },
   });
 
-  console.log('✅ Created demo order with items');
+  const order2 = await prisma.order.create({
+    data: {
+      total: 4499,
+      status: 'SHIPPED',
+      userId: user1.id,
+      storeId: store2.id,
+      addressId: address1.id,
+      isPaid: true,
+      paymentMethod: 'RAZORPAY',
+      isCouponUsed: false,
+      coupon: {},
+      orderItems: {
+        create: [
+          {
+            productId: product7.id,
+            quantity: 1,
+            price: 4499,
+          },
+        ],
+      },
+    },
+  });
+
+  const order3 = await prisma.order.create({
+    data: {
+      total: 3499,
+      status: 'PROCESSING',
+      userId: user1.id,
+      storeId: store2.id,
+      addressId: address1.id,
+      isPaid: false,
+      paymentMethod: 'COD',
+      isCouponUsed: false,
+      coupon: {},
+      orderItems: {
+        create: [
+          {
+            productId: product8.id,
+            quantity: 1,
+            price: 3499,
+          },
+        ],
+      },
+    },
+  });
+
+  console.log('✅ Created 3 demo orders with items');
 
   // Create demo ratings
   const rating1 = await prisma.rating.create({
@@ -235,8 +450,10 @@ async function main() {
   console.log('📊 Demo Data Summary:');
   console.log(`   • Users: 3`);
   console.log(`   • Stores: 2`);
-  console.log(`   • Products: 4`);
-  console.log(`   • Orders: 1`);
+  console.log(`   • Products: 11 (5 clothing, 6 electronics)`);
+  console.log(`   • Product Sizes: 35 (for clothing items)`);
+  console.log(`   • Orders: 3`);
+  console.log(`   • Order Items: 4`);
   console.log(`   • Ratings: 2`);
   console.log(`   • Coupons: 2`);
   console.log('\n🔐 Demo Credentials:');
